@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="page-header" style="color: #E7473C;">
+        <h1 style="color: #E7473C;">Bienvenue sur O'Cinema - Programmation</h1>
+        <p style="color: #E7473C;">Ce site de la gestion de la programmation du cinéma O'Cinema. Cette plateforme permet l'affectation des films disponibles au cinéma dans les différentes salles.</p>
+        <p style="color: #E7473C;">Explorez la programmation ainsi que les salles dont dispose notre cinéma :</p>
+        <div class="row">
+            <div class="col-md-6">
+                <a href="{% url 'film_list' %}" class="btn btn-secondary btn-lg btn-block text-center" style="height: 150px; background-color: #E7473C; color: #F0F0F0;">
+                    <i class="fas fa-film fa-3x"></i>
+                    <br>
+                    <img src="https://www.pngplay.com/wp-content/uploads/6/Cinema-Film-PNG-HD-Quality.png" width="60" alt="Affiche du Film {{ film.titre }}">                 
+                    Films à l'affiche
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a href="{% url 'room_list' %}" class="btn btn-secondary btn-lg btn-block text-center" style="height: 150px; background-color: #E7473C; color: #F0F0F0;">
+                    <i class="fas fa-video fa-3x"></i>
+                    <br>
+                    <img src="https://storage.needpix.com/rsynced_images/ticket-576228_1280.png" width="100" alt="Affiche du Film {{ film.titre }}">                 
+                    Liste des Salles
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

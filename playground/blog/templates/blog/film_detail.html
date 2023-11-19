@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<div class="page-header">
+    <h1 style="color:#E7473C">
+        <a href="/">{{ Film.id_film }}</a>
+    </h1>
+    <p style="color:black">Etat : {{ Film.etat }}</p>
+    <p style="color:black">Auteur : {{ Film.auteur }}</p>
+    <p style="color:black">Genre : {{ Film.genre }}</p>
+    <p style="color:black">Salle : {{ Film.salle }}</p>
+    <p style="color:black">Synopsis : {{ Film.synopsis }}</p>
+    <img src="{{ Film.affiche }}" width="200" alt="Affiche du Film {{ Film.titre }}">
+    <form method="POST" class="post-form">
+        {% csrf_token %}
+        <b> Changer : </b> {{ form.as_ul }}
+        <button type="submit" class="btn btn-outline-light">OK</button>
+        <a href="{% url 'film_list' %}">Retour</a>
+    </form>
+
+    {% if message %}
+        <div class="alert alert-danger" role="alert">
+            {{ message }}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
+

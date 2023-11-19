@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O'Cinema</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Peralta:wght@500;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+<body style="background-color: #F0F0F0; color: #E7473C; font-family: 'Peralta', sans-serif;">
+    <nav class="navbar navbar-default" style="background-color: white; color: #E7473C; font-family: 'Peralta', sans-serif;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/" style="color: #E7473C; font-size: 24px; font-weight: 900;">O'Cinema</a>
+
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'film_list' %}" style="color: #E7473C; font-size: 18px; font-weight: 500;">Films</a></li>
+                    <li><a href="{% url 'room_list' %}" style="color: #E7473C; font-size: 18px; font-weight: 500;">Salles</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header" style="color: #E7473C; border-bottom: 2px solid #E7473C;">
+            <h1>O'Cinema</h1>
+            <img src="https://www.cine-sens.fr/wp-content/uploads/2018/03/CNC-logo-d%C3%A9velopp%C3%A9-noir-600x125.png" width="180" alt="logo">                 
+
+        </div>
+        <div class="content" style="margin-top: 20px;">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

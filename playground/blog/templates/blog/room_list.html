@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h1>Liste des Salles</h1>
+    <p><strong>O'Cinema dispose de quatre types de salles différentes :</strong></p>
+    <p>☛ <strong>3 salles classiques.</strong> Ces salles disposent d'écran 50m2 d'une capacité de 250 personnes. </p>
+    <p>☛ <strong>2 salles 3D.</strong> Ces salles disposent d'écran 40m2 d'une capacité de 230 personnes. Equipés de lunettes, les spectateurs vivent une expérience plus immersive grâce à la technologie 3D. </p>
+    <p>☛ <strong>2 salles IMAX.</strong> Ces salles disposent d'écran 60m2 d'une capacité de 250 personnes sont équipés de projecteurs derniers cris. La technologie IMAX largement plébiscitée par les grands réalisateurs comme Christopher Nolan permet une approche nouvelle du cinéma avec une expérience retravaillée. </p>
+    <p>☛ <strong>Un local de stockage des films non diffusés.</strong> Bien entendu cette salle n'est pas une salle de projection. Contrairement aux autres salles qui ne peuvent être associée qu'à un seul film à la fois, celle-ci permet de stocker les films non projetés. Sa capacité est de 10 bobines.</p>
+
+    <div class="row">
+        {% for Room in rooms %}
+            <div class="col-md-4 mb-4">
+                <div style='border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; height: 350px; text-align: left;'class="Room">
+                    <h2 style="color:#E7473C">{{ Room.id_room }}</h2>
+                    <p>Disponibilité : {{ Room.disponibilite }}</p>
+                    <img src="{{ Room.photo }}" class="img-fluid" width="270" height="180" alt="Photo de la salle {{ Room.id_room }}">
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                </div><div class="row">
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

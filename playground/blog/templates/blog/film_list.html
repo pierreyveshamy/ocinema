@@ -1,0 +1,54 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <style>
+        .Film {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            height: 760px; 
+            text-align: left; 
+        }
+        .film-title {
+            font-weight: bold; 
+            color: black; 
+            font-size: 28px; 
+            text-align: center; 
+        }
+        .film-img {
+            display: block;
+            margin: 0 auto; 
+        }
+        .synopsis {
+            text-align: justify; 
+            color: black; 
+        }
+        .bold-text {
+            font-weight: bold; 
+            color: black; 
+        }
+    </style>
+
+    <h1>Liste des Films</h1>
+
+    <div class="row">
+        {% for film in films %}
+            <div class="col-md-4">
+                <div class="Film">
+                    <h2 class="film-title"><a href="{% url 'film_detail' id_film=film.id_film %}">{{ film.id_film }} </a></h2>
+                    <p style="background-color : #CAC2C1;"> <span class="bold-text" style="color:#E7473C">Etat diffusion :</span> {{ film.etat }}</p>
+                    <img class="film-img" src="{{ film.affiche }}" width="200" height="280" alt="Affiche du Film {{ film.titre }}">
+                    <p> </p>
+
+                    <p><span class="bold-text">Auteur :</span> <span style="color: black;">{{ film.auteur }}</span></p>
+                    <p><span class="bold-text">Genre :</span> <span style="color: black;">{{ film.genre }}</span></p>
+                    <p><span class="bold-text">Salle :</span> <span style="color: black;">{{ film.salle }}</span></p>
+                    <p class="synopsis"><span class="bold-text">Synopsis :</span> {{ film.synopsis }}</p>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                </div><div class="row">
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

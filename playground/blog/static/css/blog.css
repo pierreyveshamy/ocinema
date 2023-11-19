@@ -1,0 +1,41 @@
+body {
+    background-color: #d31f1f;
+    color: #E7473C;
+    font-family: 'Peralta', sans-serif;
+}
+
+.navbar {
+    background-color: #821e1e;
+    color: #E7473C;
+    font-family: 'Peralta', sans-serif;
+}
+
+.navbar-brand {
+    color: #E7473C;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.navbar-nav > li > a {
+    color: #E7473C;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.page-header {
+    font-family: 'Peralta', sans-serif;
+    color: #E7473C;
+    border-bottom: 2px solid #E7473C;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 900;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.content {
+    margin-top: 20px;
+    color: #E7473C;
+}
